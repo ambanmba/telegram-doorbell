@@ -19,6 +19,8 @@ Then each subsequent message you send to the bot will trigger it to pull an imag
 I got this to work on an ESP8266 board. You need to keep in mind that the memory available is quite small so the .jpg file cannot be too large. Also keep in mind that it runs VERY slowly. It takes a bit over 10 seconds to pull a ~256k file from the camera and then it takes nearly 5 minutes to push it to Telegram.
 
 Here is an example with time stamps (so you can see how slow it is) of all the steps as they are output to the Serial Terminal:
+
+```
 19:45:06.009 -> [TELEGRAM] Received Message
 19:45:06.009 -> [TELEGRAM] Message from user: **redacted**
 19:45:06.009 -> [TELEGRAM] Message text: /start
@@ -33,3 +35,4 @@ Here is an example with time stamps (so you can see how slow it is) of all the s
 19:45:17.008 -> [FILE] closing file
 19:45:23.208 -> [TELEGRAM] Sending image: snap.jpeg....
 19:49:17.818 -> [TELEGRAM] Image was successfully sent.
+```
