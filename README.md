@@ -8,7 +8,7 @@ Very basic POC/MVP to capture an image from a Ubiquiti Doorbell (or any other Ub
 
 **Then modify the code as follows (chose the ESP32 version for ESP32 or the base version for the ESP8266):**
 1. Fill in your details (Wifi Credentials and Telegram Bot token)
-2. Fill in the full path to the image snapshot on your camera
+2. Fill in the full path to the image snapshot on your camera (see line 39)
 3. As a test this will talk to anyone who tries to communicate with the bot. To lock it down just make sure it only interacts with your chat_id
 
 Then upload the sketch to your board and open the Serial Terminal to see what's happening
