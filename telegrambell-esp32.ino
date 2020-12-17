@@ -36,7 +36,7 @@ void handleNewMessages(int numNewMessages)
   String chat_id = bot.messages[0].chat_id;
   String message = bot.messages[0].text;
   String file_name = "/snap.jpeg";                 // Local filename
-  String url = "http://192.168.44.195/snap.jpeg"; // File to retrieve from camera
+  String url = "http://192.168.4.19/snap.jpeg"; // File to retrieve from camera
 
   Serial.print("[TELEGRAM] Message from user: ");
   Serial.println(chat_id);
