@@ -6,9 +6,9 @@ Very basic POC/MVP to capture an image from a Ubiquiti Doorbell (or any other Ub
 2. Get a Telegram Bot token: https://core.telegram.org/bots#botfather
 3. Install the Universal Arduino Telegram Bot library: https://github.com/witnessmenow/Universal-Arduino-Telegram-Bot 
 
-**Then modify the code as follows:**
-1. Fill in your details on lines 9-11 (Wifi Credentials and Telegram Bot token)
-2. Fill in the full path to the image snapshot on your camera on line 39
+**Then modify the code as follows (chose the ESP32 version for ESP32 or the base version for the ESP8266):**
+1. Fill in your details (Wifi Credentials and Telegram Bot token)
+2. Fill in the full path to the image snapshot on your camera
 3. As a test this will talk to anyone who tries to communicate with the bot. To lock it down just make sure it only interacts with your chat_id
 
 Then upload the sketch to your board and open the Serial Terminal to see what's happening
@@ -17,9 +17,11 @@ Then connect to the Telegram Bot and send /start
 Then each subsequent message you send to the bot will trigger it to pull an image and send it
 
 **Important Notes:**
-I got this to work on an ESP8266 board. You need to keep in mind that the memory available is quite small so the .jpg file cannot be too large. Also keep in mind that it runs VERY slowly. It takes a bit over 10 seconds to pull a ~256k file from the camera and then it takes nearly 5 minutes to push it to Telegram.
+On an ESP8266 board this is very slow. On an ESP32 you can expect the full roundtrip transaction to take less than a minute. The memory available is quite small so the .jpg file cannot be too large. It takes a bit over 10 seconds to pull a ~256k file from the camera and then it takes nearly 5 minutes to push it to Telegram (on ESP8266) much faster on ESP32.
 
-Here is an example with time stamps (so you can see how slow it is) of all the steps as they are output to the Serial Terminal:
+I'm just an untrained hack at writing code, so I'm sure there is a better way and happy to take advice on how to speed this up.
+
+Here is an example with time stamps on ESP8266 (so you can see how slow it is) of all the steps as they are output to the Serial Terminal:
 
 ```
 19:45:06.009 -> [TELEGRAM] Received Message
